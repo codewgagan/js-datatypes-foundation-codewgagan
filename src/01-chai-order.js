@@ -48,24 +48,38 @@
  */
 export function getChaiOrderLength(order) {
   // Your code here
-  
+  if (typeof order !== "string") return -1;
+  return order.trim().length;
 }
 
 export function shoutChaiOrder(order) {
   // Your code here
-  if(order !== "string") return -1;
-  return order.trim().length
-  // comment
+  if (typeof order !== "string") return "";
+  if (order.trim() == "") return "";
+  return order.trim().toUpperCase();
 }
 
 export function whisperChaiOrder(order) {
   // Your code here
+
+  if (typeof order !== "string") return "";
+  if (order.trim() == "") return "";
+  return order.trim().toLowerCase();
 }
 
 export function hasSpecialIngredient(order, ingredient) {
   // Your code here
+  if (typeof order !== "string" || typeof ingredient !== "string") return false;
+  return order.toLowerCase().includes(ingredient.toLowerCase());
 }
 
 export function getFirstAndLastChar(order) {
   // Your code here
+  if (typeof order !== "string") return null;
+  if (order.trim() === "") return null;
+  const trimmed = order.trim();
+  const first = trimmed.charAt(0);
+  const last = trimmed.at(-1);
+  return { first, last };
 }
+
